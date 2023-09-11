@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 4rem;
+}
+button {
+  padding: 1rem 2rem;
+  background-color: black;
+  font-size: 2rem;
+  color: #fff;
+  outline: none;
+}
+
+section {
+  max-width: 970px;
+  margin: auto;
+  text-align: center;
+}
