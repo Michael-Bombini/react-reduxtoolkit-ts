@@ -7,7 +7,17 @@ export default function PostsList() {
     <div className="container">
       <h1>Post List</h1>
       {posts.map((post) => {
-        return <Post key={post.id} title={post.title} content={post.content} />;
+        return (
+          <Post
+            key={post.id}
+            title={post.title}
+            content={post.content}
+            userId={post.userId}
+            date={post.date}
+            postId={post.id}
+            reaction={post.reaction}
+          />
+        );
       })}
     </div>
   );
