@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../store/store";
 import { useEffect } from "react";
 import Post from "./Post";
 import { fetchUsers } from "../features/users/usersSlice";
+import AddPost from "./AddPost";
 
 export default function PostList() {
   const dispatch = useAppDispatch();
@@ -17,17 +18,18 @@ export default function PostList() {
       dispatch(fetchPosts());
       dispatch(fetchUsers());
     }
-  }, [status, dispatch]);
+  }, [statusPosts, dispatch]);
 
   if (error) {
     return <h1>C'è stato un ERRORE!!!</h1>;
   }
-  if (status === "loading") {
+  if (statusPosts === "loading") {
     return <h1>Loading...</h1>;
   }
 
   return (
     <div>
+      <AddPost/>
       {posts.map((post) => (
         <Post
           key={post.id}
