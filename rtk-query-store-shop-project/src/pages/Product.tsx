@@ -2,6 +2,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../api/apliSlice";
 import { useAppDispatch } from "../redux/store";
 import { addProduct } from "../redux/slices/cartSlice";
+import { openModal } from "../redux/slices/modalSlice";
 
 export default function Product() {
   const dispatch = useAppDispatch();
@@ -25,15 +26,16 @@ export default function Product() {
       {JSON.stringify(product)}
       <button
         className="bg-blue-700 rounded-md text-white px-2 py-1 block my-6"
-        onClick={() =>
+        onClick={() => {
           dispatch(
             addProduct({
               title: product?.title,
               price: product?.price,
               thumbnail: product?.thumbnail,
             })
-          )
-        }
+          );
+          dispatch(openModal({ message: "Product added to cart" }));
+        }}
       >
         Add Product
       </button>
